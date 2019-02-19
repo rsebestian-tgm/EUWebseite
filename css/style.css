@@ -109,6 +109,9 @@ html {
   margin-bottom: 30px;
   line-height: 2em;
 }
+li {
+  color: #fff;
+}
 .fh5co-hero-inner .download-btn-first {
   font-size: 15px;
   padding: 10px 15px;
