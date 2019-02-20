@@ -24,6 +24,11 @@ small, .small {
   background: #f7f7f7;
 }
 
+.body-quiz{
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
 .download-btn-first:hover {
   background: #234197;
   color: #fff !important;
