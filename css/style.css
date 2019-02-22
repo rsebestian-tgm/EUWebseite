@@ -50,6 +50,13 @@ small, .small {
   border-radius: 0 0 50% 50% / 4%;
 }
 
+#fh5co-hero-sub-wrapper {
+  height: 800px;
+  width: 100%;
+  background: url("../img/banner-sub-bg1.jpg") no-repeat center;
+  border-radius: 0 0 50% 50% / 4%;
+}
+
 .main-navbar-nav .navbar-brand {
   font-size: 38px;
   font-family: 'Viga', sans-serif;
@@ -116,6 +123,25 @@ small, .small {
   width: 400px;
   font-size: 14px;
   color: #fff;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  line-height: 2em;
+}
+
+.fh5co-hero-inner-sub {
+  margin-top: 110px;
+  position: relative;
+}
+.fh5co-hero-inner-sub > h1 {
+  color: #000;
+  font-weight: 300;
+  font-size: 55px;
+  letter-spacing: 2px;
+}
+.fh5co-hero-inner-sub > p {
+  width: 400px;
+  font-size: 14px;
+  color: #000;
   margin-top: 30px;
   margin-bottom: 30px;
   line-height: 2em;
