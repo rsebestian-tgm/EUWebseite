@@ -56,10 +56,31 @@
     <div class="row">
 
       <!-- Post Content Column -->
-        <div class="col-lg-8">
-          <script>
-            document.write('miep');
+        <div id = "content" class="col-lg-8">
+            <script type="text/javascript">
+              var xmlhttp;
+
+                    if(window.XMLHttpRequest) {
+                        xmlhttp=new XMLHttpRequest();
+                    }
+                    else {
+                        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+
+                    xmlhttp.onreadystatechange=function() {
+                        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+                            //alert(xmlhttp.responseText);
+                            //document.write('<div>' + xmlhttp.responseText + '</div>' );
+                            document.getElementById("content").innerHTML+= xmlhttp.responseText;
+                        }
+                    }
+
+                    xmlhttp.open("GET","contentfiles/Artikel1/Content.txt",true);
+                    xmlhttp.send();
+
             </script>
+              
+            
 
       </div>
 
@@ -67,7 +88,7 @@
         <div class="col-md-4">
 
         <!-- Search Widget -->
-        <div class="card my-4">
+        <div id="sidecontent" class="card my-4">
               <!--<h5 class="card-header">Search</h5>
               <div class="card-body">
                 <div class="input-group">
