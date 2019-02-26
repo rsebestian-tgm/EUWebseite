@@ -3,6 +3,13 @@
   <head>
     <title>EU-Wahl Quiz</title>
 
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/blog-post.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
     <!-- Bootstrap  -->
 	<link rel="stylesheet" href="../css/bootstrap.css">
 	<!-- Owl Carousel  -->
@@ -21,9 +28,10 @@
       *
       * @param fragen ein Array mit Elementen vom Typ Frage
       */
-      function Quiz(fragen){
+      function Quiz(fragen, ergebnis){
         this.progress = 0;
         this.fragen = fragen;
+        this.ergebnis = ergebnis;
 
         /**
         * Funktion, welche die erste Frage aus dem fragen-Array anzeigt
@@ -36,6 +44,25 @@
         * Funktion welche den progress um 1 erhöht und dann somit die nächste Frage anzeigt
         */
         this.weiter = function(){
+          var antwort = document.getElementsByName('antworten');
+          var antworten = this.fragen[this.progress].getAntworten();
+          var actualText, actual;
+          var i = 0;
+          for(i = 0; i < antwort.length; i++){
+            if(antwort[i].checked == true){
+              actualText = antwort[i].id;
+            }
+          }
+          alert(actualText);
+          for(var a of antworten){
+            if(a.checkId(actualText)){
+              actual = a;
+            }
+          }
+          var kats = actual.getKategorien();
+          for(var key of kats.keys()){
+            ergebnis.addPunkte(key, kats.get(key));
+          }
           if(this.progress+1 < this.fragen.length){
             this.progress += 1;
             this.fragen[this.progress].setup();
@@ -63,7 +90,7 @@
         * Funktion, die das Ergebnis anzeigt
         */
         this.ende = function(){
-          document.getElementById("quiz").innerHTML = "<h1 class='second-title'>Danke für deine Teilnahme!</h1>";
+          ergebnis.getErgebnis();
         }
 
       }
@@ -91,6 +118,12 @@
           }
           document.getElementById("quiz").innerHTML += "<input type='button' name='button01' id='"+this.id+"' onclick='quiz.zurueck();' class='btn btn-md download-btn-first wow fadeInLeft animated' value='Zurück'></input>";
           document.getElementById("quiz").innerHTML += "<input type='button' name='button01' id='"+this.id+"' onclick='quiz.weiter();' class='btn btn-md download-btn-first wow fadeInLeft animated' value='Weiter'></input></form>";
+          this.getAntworten = function(){
+            return this.antworten;
+          }
+          this.getTitel = function(){
+            return this.titel;
+          }
         }
 
         /**
@@ -109,6 +142,7 @@
       * @param text Der Text der Antwortmöglichkeit
       * @param kategorien Eine Map an Kategorien, welche als keys die Kategoriebezeichnungen hat
                           und als values, die Anzahl an Punkten die diese Antwortmöglichkeit für diese Kategorie hat
+                          Bitte nur die Kategorien angeben, wo minedestens 1 Punkt gegeben wird.
       * @param id Die ID der Antwortmöglichkeit
       * @param checked False, wenn das nicht die von Anfang an angekreuzte Antwort sein soll,
                        True, wenn schon. Bei einem Array für Frage, muss mindestens (& höchstens) eine Antwort ein checked=true haben.
@@ -118,30 +152,87 @@
         this.kategorien = kategorien;
         this.id = id;
         this.checked = checked;
-        this.getPunkte = function(){
-          alert(this.kategorien.get("kat3"));
+        this.getKategorien = function(){
+          return this.kategorien;
         }
+        this.getText = function(){
+          return this.text;
+        }
+        this.checkId = function(id){
+          return id == this.id;
+        }
+      }
+
+      function Ergebnis(kategorien){
+        this.kategorien = kategorien;
+        this.addPunkte = function(kategorie, punkte){
+          this.kategorien.set(kategorie, this.kategorien.get(kategorie)+punkte);
+        }
+        this.getErgebnis = function(){
+          var points = Array.from(this.kategorien.values());
+          points.sort();
+          var rank1 = points[points.length -1];
+          var rank2 = points[points.length -2];
+          var rank3 = points[points.length -3];
+          var kat1, kat2, kat3;
+          for(var key of this.kategorien.keys()){
+            if(this.kategorien.get(key) == rank1){
+              kat1 = key;
+            }if(this.kategorien.get(key) == rank2){
+              kat2 = key;
+            }if(this.kategorien.get(key) == rank3){
+              kat3 = key;
+            }
+          }
+          document.getElementById("quiz").innerHTML = "Du hast "+rank1+" Punkte in "+kat1+", "+rank2+" Punkte in "+kat2+" und "+rank3+" Punkte in "+kat3+". <br>Danke für deine Teilnahme!";
+        }
+
       }
     </script>
     <meta charset="utf-8" />
   </head>
   <body>
-      <div style="margin-top: 10px; margin-left:10px">
-      <a href="../index.html" class="btn btn-outline-primary" role="button">Gehe zurück auf die Homepage</a>
+    <style lang="css">
+    .navbar{
+        background-color: #00309a !important;
+    }
+</style>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="font-family: 'Viga', sans-serif;"><img src="../img/logo.png" style="width:110px; padding-right: 10px">EU-Informationsseite</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
       </div>
+    </div>
+    </nav>
+
     <div id="quiz" class="body-quiz"></div>
 
     <script type="text/javascript">
       //Hier werden die Kategorien erstellt
       var kats = new Map();
-      kats.set("kat1", 2);
-      kats.set("kat2", 1);
-      kats.set("kat3", 0);
+      kats.set("FPÖ", 0);
+      kats.set("SPÖ", 0);
+      kats.set("ÖVP", 0);
+      kats.set("JETZT", 0);
+      kats.set("NEOS", 0);
+      kats.set("GRÜNE", 0);
+
+      var kats1 = new Map();
+      kats1.set("SPÖ", 2);
+      kats1.set("FPÖ", 1);
 
       //Hier werden die Antwortmöglichkeiten erstellt
       var answers = new Array(2);
-      answers[0] = new Antwort("Ja", kats, "a1", true);
-      answers[1] = new Antwort("Nein", kats, "a2", false);
+      answers[0] = new Antwort("Ja", kats1, "a1", true);
+      answers[1] = new Antwort("Nein", kats1, "a2", false);
 
       //Hier werden die Fragen erstellt
       var frage = new Array(2);
@@ -149,7 +240,7 @@
       frage[1] = new Frage("Findest du, dass Homoehe überall gestattet sein soll?", answers, "f2");
 
       //Hier wird das Quiz gestartet
-      var quiz = new Quiz(frage)
+      var quiz = new Quiz(frage, new Ergebnis(kats));
       quiz.start();
     </script>
   </body>
