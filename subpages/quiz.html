@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>EU-Wahl Quiz</title>
-
+    <!-- Alle Sachen die noch gemacht werden müssen sind mit TODO markiert,
+    also einfach STRG + F nach TODO :) -->
 
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -53,7 +54,6 @@
               actualText = antwort[i].id;
             }
           }
-          alert(actualText);
           for(var a of antworten){
             if(a.checkId(actualText)){
               actual = a;
@@ -171,20 +171,66 @@
         this.getErgebnis = function(){
           var points = Array.from(this.kategorien.values());
           points.sort();
+          var gesamt = 0;
+          for(var point of points){
+            gesamt += point;
+          }
+          var retText = "";
           var rank1 = points[points.length -1];
           var rank2 = points[points.length -2];
           var rank3 = points[points.length -3];
           var kat1, kat2, kat3;
+
+          var links = new Map();
+          links.set("FPÖ", "https://www.fpoe.at/");
+          links.set("SPÖ", "https://www.spoe.at/");
+          links.set("GRÜNEN", "https://www.gruene.at/");
+          links.set("JETZT", "https://partei.jetzt/");
+          links.set("ÖVP", "https://www.dieneuevolkspartei.at/");
+          links.set("NEOS", "https://www.neos.eu/");
+
           for(var key of this.kategorien.keys()){
+            retText += "Du solltest zu "+parseInt(this.kategorien.get(key)/gesamt*100)+"% die <button class='btn btn-md download-btn-first wow animated' href='"+links[key]+"'>"+key+"</button> wählen. <br>"
             if(this.kategorien.get(key) == rank1){
               kat1 = key;
             }if(this.kategorien.get(key) == rank2){
-              kat2 = key;
+              if(kat1 != key){
+                kat2 = key;
+              }
             }if(this.kategorien.get(key) == rank3){
-              kat3 = key;
+              if(kat1 != key && kat2 != key){
+                kat3 = key;
+              }
             }
           }
-          document.getElementById("quiz").innerHTML = "Du hast "+rank1+" Punkte in "+kat1+", "+rank2+" Punkte in "+kat2+" und "+rank3+" Punkte in "+kat3+". <br>Danke für deine Teilnahme!";
+
+          /**
+          * TODO Hier die Links auf unsere subpages anpassen!!
+          switch(kat1){
+            case "FPÖ":
+              link = "https://www.fpoe.at/";
+              break;
+            case "SPÖ":
+              link = "https://www.spoe.at/";
+              break;
+            case "GRÜNEN":
+              link = "https://www.gruene.at/";
+              break;
+            case "JETZT":
+              link = "https://partei.jetzt/";
+              break;
+            case "ÖVP":
+              link = "https://www.dieneuevolkspartei.at/";
+              break;
+            case "NEOS":
+              link = "https://www.neos.eu/";
+              break;
+          }
+          */
+
+          document.getElementById("quiz").innerHTML = "Du könntest dich mal über die <button class='btn btn-md download-btn-first wow animated' href='"+links[kat1]+"'>"+kat1+"</button> schlau machen! <br><br>";
+          document.getElementById("quiz").innerHTML += retText;
+          //document.getElementById("quiz").innerHTML = "Du hast "+rank1+" Punkte in "+kat1+", "+rank2+" Punkte in "+kat2+" und "+rank3+" Punkte in "+kat3+". <br>Danke für deine Teilnahme!";
         }
 
       }
@@ -199,14 +245,14 @@
 </style>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="../index.html" style="font-family: 'Viga', sans-serif;"><img src="../img/logo.png" href="../index.html" style="width:110px; padding-right: 10px">EU-Informationsseite</a>
+      <a class="navbar-brand" href="#" style="font-family: 'Viga', sans-serif;"><img src="../img/logo.png" style="width:110px; padding-right: 10px">EU-Informationsseite</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
         </ul>
       </div>
@@ -223,21 +269,37 @@
       kats.set("ÖVP", 0);
       kats.set("JETZT", 0);
       kats.set("NEOS", 0);
-      kats.set("GRÜNE", 0);
+      kats.set("GRÜNEN", 0);
 
       var kats1 = new Map();
-      kats1.set("SPÖ", 2);
-      kats1.set("FPÖ", 1);
+      kats1.set("SPÖ", 1);
+      kats1.set("ÖVP", 2);
+
+      var kats2 = new Map();
+      kats2.set("NEOS", 2);
+      kats2.set("GRÜNEN", 2);
+
+      var kats3 = new Map();
+      kats3.set("SPÖ", 2);
+      kats3.set("NEOS", 2);
+      kats3.set("GRÜNEN", 2);
+
+      var kats4 = new Map();
+      kats4.set("FPÖ", 2);
+      kats4.set("ÖVP", 2);
 
       //Hier werden die Antwortmöglichkeiten erstellt
-      var answers = new Array(2);
-      answers[0] = new Antwort("Ja", kats1, "a1", true);
-      answers[1] = new Antwort("Nein", kats1, "a2", false);
+      var answers1 = new Array(2);
+      answers1[0] = new Antwort("Ja", kats1, "a1", true);
+      answers1[1] = new Antwort("Nein", kats2, "a2", false);
 
+      var answers2 = new Array(2);
+      answers2[0] = new Antwort("Ja", kats3, "a1", true);
+      answers2[1] = new Antwort("Nein", kats4, "a2", false);
       //Hier werden die Fragen erstellt
       var frage = new Array(2);
-      frage[0] = new Frage("Findest du Artikel 13 sollte durchgesetzt werden?", answers, "f1");
-      frage[1] = new Frage("Findest du, dass Homoehe überall gestattet sein soll?", answers, "f2");
+      frage[0] = new Frage("Findest du Artikel 13 sollte durchgesetzt werden?", answers1, "f1");
+      frage[1] = new Frage("Findest du, dass Homoehe überall gestattet sein soll?", answers2, "f2");
 
       //Hier wird das Quiz gestartet
       var quiz = new Quiz(frage, new Ergebnis(kats));
