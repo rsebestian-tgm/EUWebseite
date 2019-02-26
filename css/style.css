@@ -20,7 +20,7 @@ html {
 
 .line-1{
     position: relative;
-    top: 50%;  
+    top: 50%;
     width: 24em;
     margin: 0 auto;
     border-right: 2px solid rgba(255,255,255,.75);
@@ -28,7 +28,7 @@ html {
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
-    transform: translateY(-50%);    
+    transform: translateY(-50%);
 }
 
 /* Animation */
@@ -57,6 +57,12 @@ small, .small {
 .body-quiz{
   margin-left: 10%;
   margin-top: 10%;
+}
+
+input[type="radio"]{
+  font-size: 14px;
+  font-family: "Montserrat", "sans-serif";
+  margin-right: 1%;
 }
 
 .download-btn-first:hover {
@@ -833,7 +839,7 @@ li {
   }
 .navbar{
         background-color: #1C32B2 !important;
-    }   
+    }
   .navbar-light .navbar-toggler {
     color: #fff !important;
     border-color: #c7c7c7 !important;
@@ -1057,5 +1063,5 @@ li {
     width: 100%;
     text-align: center;
   }
-    
+
 }
