@@ -1,6 +1,6 @@
 
         <!-- Title -->
-        <h1 class="mt-4">MIEP des Artikels</h1>
+        <h1 class="mt-4">Titel des Artikels</h1>
 
         <!-- Author -->
         <p class="lead">
