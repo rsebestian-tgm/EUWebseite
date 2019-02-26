@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Artikelübersicht</title>
+  <title>ArtikelÃ¼bersicht</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -40,7 +40,7 @@
 
       <!-- Page Heading -->
       <h1 class="my-4">Themenbereichname
-        <small>Artikelübersicht</small>
+        <small>ArtikelÃ¼bersicht</small>
       </h1>
 
       <!-- Project One -->

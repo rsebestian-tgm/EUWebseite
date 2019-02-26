@@ -69,7 +69,7 @@
 		</nav>-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#" style="font-family: 'Viga', sans-serif;">EU-Informationsseite</a>
+      <a class="navbar-brand" href="#" style="font-family: 'Viga', sans-serif;"><img src="img/logo.png" href="index.html" style="width:110px; padding-right: 10px">EU-Informationsseite</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -123,8 +123,38 @@
 	<!-- ==========================================================================================================
 													 ADVANTAGES
 		 ========================================================================================================== -->
+	 <link rel="stylesheet" href="css/flipclock.css">
 
-	<div class="fh5co-advantages-outer">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+		<script src="js/flipclock.js"></script>
+    <div class="clock" style="margin:2em;"></div>
+	<div class="message"></div>
+
+	<script type="text/javascript">
+		var clock;
+		
+		$(document).ready(function() {
+			var clock;
+
+			clock = $('.clock').FlipClock({
+		        clockFace: 'DailyCounter',
+		        autoStart: false,
+		        callbacks: {
+		        	stop: function() {
+		        		$('.message').html('Die EU Wahl hat begonnen!')
+		        	}
+		        }
+		    });
+				    
+		    clock.setTime(220880);
+		    clock.setCountdown(true);
+		    clock.start();
+
+		});
+	</script>
+    
+    <div class="fh5co-advantages-outer">
 		<div class="container">
 			<div class="row fh5co-advantages-grid-columns wow animated fadeIn" data-wow-delay="0.36s">
 
@@ -160,7 +190,7 @@
 		<h1>Neueste Artikel</h1>
         <small>Hier findest du die neuesten Artikel</small>
 		<!--Carousel Wrapper-->
-<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+<div id="multi-item-example1" class="carousel slide carousel-multi-item" data-ride="carousel">
   <!--Slides-->
   <div class="carousel-inner" role="listbox">
 
@@ -276,8 +306,8 @@
     </div> 
     <!--Controls-->
   <div class="controls-top">
-    <p style="text-align:center"><a class="btn btn-secondary" href="#multi-item-example" data-slide="prev" style="border-radius:100px"><i class="fas fa-chevron-left"></i></a>
-        <a class="btn btn-secondary" href="#multi-item-example" data-slide="next" style="border-radius:100px"><i class="fas fa-chevron-right"></i></a></p>
+    <p style="text-align:center"><a class="btn btn-secondary" href="#multi-item-example1" data-slide="prev" style="border-radius:100px"><i class="fas fa-chevron-left"></i></a>
+        <a class="btn btn-secondary" href="#multi-item-example1" data-slide="next" style="border-radius:100px"><i class="fas fa-chevron-right"></i></a></p>
   </div>
   <!--/.Controls--></div>
 <!--/.Carousel Wrapper-->
