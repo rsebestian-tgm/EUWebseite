@@ -85,7 +85,7 @@
             this.fragen[this.progress].setup();
 
             ergebnis.undo(this.counts[this.counts.length-1]);
-            delete this.counts[this.counts.length-1];
+            this.counts.splice(this.counts.length-1, 1);
             alert(this.counts + ", " + this.counts.length);
           }else{
             alert("Das ist die erste Frage!");
@@ -182,9 +182,9 @@
         this.undo = function(count){
           var i;
           for(i = 1; i <= count; i++){
-            this.kategorien.set(this.catAdded[this.catAdded.length-i], this.kategorien.get(this.catAdded[this.catAdded.length-i])-this.added[this.added.length-i]);
-            delete this.added[this.added.length-i];
-            delete this.catAdded[this.catAdded.length-i];
+            this.kategorien.set(this.catAdded[this.catAdded.length-1], this.kategorien.get(this.catAdded[this.catAdded.length-1])-this.added[this.added.length-1]);
+            this.added.splice(this.added.length-1, 1);
+            this.catAdded.splice(this.catAdded.length-1, 1);
 
             alert("Added: "+this.added + ", Cats: " + this.catAdded);
           }
@@ -202,6 +202,9 @@
           var rank3 = points[points.length -3];
           var kat1, kat2, kat3;
 
+          /**
+          * TODO Hier die Links auf unsere subpages anpassen!!
+          */
           var links = new Map();
           links.set("FPÖ", "https://www.fpoe.at/");
           links.set("SPÖ", "https://www.spoe.at/");
@@ -211,7 +214,7 @@
           links.set("NEOS", "https://www.neos.eu/");
 
           for(var key of this.kategorien.keys()){
-            retText += "Du solltest zu "+parseInt(this.kategorien.get(key)/gesamt*100)+"% die <button class='btn btn-md download-btn-first wow animated' href='"+links[key]+"'>"+key+"</button> wählen. <br>"
+            retText += "Du solltest zu "+parseInt(this.kategorien.get(key)/gesamt*100)+"% die <a href='"+links.get(key)+"'><button class='btn btn-md download-btn-first wow animated'>"+key+"</button></a> wählen. <br>"
             if(this.kategorien.get(key) == rank1){
               kat1 = key;
             }if(this.kategorien.get(key) == rank2){
@@ -225,31 +228,7 @@
             }
           }
 
-          /**
-          * TODO Hier die Links auf unsere subpages anpassen!!
-          switch(kat1){
-            case "FPÖ":
-              link = "https://www.fpoe.at/";
-              break;
-            case "SPÖ":
-              link = "https://www.spoe.at/";
-              break;
-            case "GRÜNEN":
-              link = "https://www.gruene.at/";
-              break;
-            case "JETZT":
-              link = "https://partei.jetzt/";
-              break;
-            case "ÖVP":
-              link = "https://www.dieneuevolkspartei.at/";
-              break;
-            case "NEOS":
-              link = "https://www.neos.eu/";
-              break;
-          }
-          */
-
-          document.getElementById("quiz").innerHTML = "Du könntest dich mal über die <button class='btn btn-md download-btn-first wow animated' href='"+links[kat1]+"'>"+kat1+"</button> schlau machen! <br><br>";
+          document.getElementById("quiz").innerHTML = "Du könntest dich mal über die <a href='"+links.get(kat1)+"'><button class='btn btn-md download-btn-first wow animated'>"+kat1+"</button></a> schlau machen! <br><br>";
           document.getElementById("quiz").innerHTML += retText;
           //document.getElementById("quiz").innerHTML = "Du hast "+rank1+" Punkte in "+kat1+", "+rank2+" Punkte in "+kat2+" und "+rank3+" Punkte in "+kat3+". <br>Danke für deine Teilnahme!";
         }
