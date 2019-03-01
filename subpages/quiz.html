@@ -33,7 +33,7 @@
         this.progress = 0;
         this.fragen = fragen;
         this.ergebnis = ergebnis;
-
+        this.counts = [];
         /**
         * Funktion, welche die erste Frage aus dem fragen-Array anzeigt
         */
@@ -63,6 +63,7 @@
           for(var key of kats.keys()){
             ergebnis.addPunkte(key, kats.get(key));
           }
+          this.counts.push(Array.from(kats.keys()).length);
           if(this.progress+1 < this.fragen.length){
             this.progress += 1;
             this.fragen[this.progress].setup();
@@ -71,16 +72,21 @@
             frage.end();
             this.progress++;
           }
-
+          alert(this.counts);
         }
 
         /**
         * Funktion welche den progress um 1 verringert und dann somit die vorherige Frage anzeigt
         */
         this.zurueck = function(){
+
           if(this.progress-1 >= 0){
             this.progress -= 1;
             this.fragen[this.progress].setup();
+
+            ergebnis.undo(this.counts[this.counts.length-1]);
+            delete this.counts[this.counts.length-1];
+            alert(this.counts + ", " + this.counts.length);
           }else{
             alert("Das ist die erste Frage!");
           }
@@ -165,8 +171,23 @@
 
       function Ergebnis(kategorien){
         this.kategorien = kategorien;
+        this.catAdded = [];
+        this.added = [];
         this.addPunkte = function(kategorie, punkte){
           this.kategorien.set(kategorie, this.kategorien.get(kategorie)+punkte);
+          this.added.push(punkte);
+          this.catAdded.push(kategorie);
+          alert(this.added + ", " + this.catAdded);
+        }
+        this.undo = function(count){
+          var i;
+          for(i = 1; i <= count; i++){
+            this.kategorien.set(this.catAdded[this.catAdded.length-i], this.kategorien.get(this.catAdded[this.catAdded.length-i])-this.added[this.added.length-i]);
+            delete this.added[this.added.length-i];
+            delete this.catAdded[this.catAdded.length-i];
+
+            alert("Added: "+this.added + ", Cats: " + this.catAdded);
+          }
         }
         this.getErgebnis = function(){
           var points = Array.from(this.kategorien.values());
