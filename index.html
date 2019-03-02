@@ -7,7 +7,7 @@
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FreeHTML5.co" />
-    
+
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<!-- Owl Carousel  -->
@@ -33,43 +33,10 @@
 		 ========================================================================================================== -->
 
 	<div id="fh5co-hero-wrapper">
-		<!--<nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light ">
-			<a class="navbar-brand" href="">EU-Infoseite</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav nav-items-center ml-auto mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="$('#fh5co-wahl').goTo();return false;">Wahl</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="$('#fh5co-info').goTo();return false;">Info</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#"  onclick="$('#fh5co-partei').goTo();return false;">Politik</a>
-					</li>
-                    					<li class="nav-item">
-						<a class="nav-link" href="#"  onclick="$('#fh5co-zukunft').goTo();return false;">Zukunft</a>
-					</li>
-                    					<li class="nav-item">
-						<a class="nav-link" href="#"  onclick="$('#fh5co-gesetz').goTo();return false;">Gesetz</a>
-					</li>
-                    					<li class="nav-item">
-						<a class="nav-link" href="#"  onclick="$('#fh5co-spiele').goTo();return false;">Spiele</a>
-					</li>
-				</ul>
-				<div class="social-icons-header">
-				</div>
-			</div>
-		</nav>-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#" style="font-family: 'Viga', sans-serif;"><img src="img/logo.png" href="index.html" style="width:110px; padding-right: 10px">EU-Informationsseite</a>
+			<a class="navbar-brand logo" href="index.html"><img src="img/logo.png" href="index.html" style="width:110px; padding-right: 10px"></a>
+      <a class="navbar-brand" href="#" style="font-family: 'Viga', sans-serif;">EU-Informationsseite</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -103,57 +70,63 @@
         <style lang="css">
         .navbar{
             background-color: #00309a !important;
-        }   
+        }
         </style>
 
-		<div class="container fh5co-hero-inner">		
+		<div class="container fh5co-hero-inner">
             <p style="height:100px"></p>
             <h1 class="line-1 anim-typewriter" data-wow-delay="0.4s" style="background-color: #1C32B2; max-width: 350px; position: absolute"><b>The U in EU</b></h1>
             <p style="height:150px"></p>
 			<p class="animated fadeIn wow" data-wow-delay="0.67s" style="background-color: #00309a;">Diese Seite dient dazu, Bürgerinnen und Bürger über die EU und deren Wahl im Jahr 2019 zu informieren. <br>Das Webangebot bietet Ihnen die Schülerschaft der 4. Jahrgänge im TGM Abteilung Informationstechnologie.</p>
 			<button class="btn btn-md download-btn-first wow fadeInLeft animated" data-wow-delay="0.85s" onclick="$('#fh5co-artikel').goTo();return false;">Neueste Artikel</button>
 			<button class="btn btn-md features-btn-first animated fadeInLeft wow" data-wow-delay="0.95s" onclick="$('#fh5co-partei').goTo();return false;">Parteien</button>
-			<img class="fh5co-hero-smartphone animated fadeInRight wow" data-wow-delay="1s" style="margin-top: 5%" src="img/Propaganda/propagandaTest.jpg">
+			<img class="fh5co-hero-smartphone animated fadeInRight wow" data-wow-delay="1s" style="margin-top: 5%" alt="&copy Alexander Cech" src="img/Propaganda/propaganda1.jpg">
 		</div>
-
 
 	</div> <!-- first section wrapper -->
 
 
 	<!-- ==========================================================================================================
+													 TIME-COUNTDOWN
+		 ========================================================================================================== -->
+	 <script>const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+let countDown = new Date('May 23, 2019 00:00:00').getTime(),
+    x = setInterval(function() {
+
+      let now = new Date().getTime(),
+          distance = countDown - now;
+
+      document.getElementById('days').innerText = Math.floor(distance / (day)),
+        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+      //do something later when date is reached
+      if (distance < 0) {
+        clearInterval(x);
+        'DIE EU WAHL HAT BEGONNEN!';
+      }
+
+    }, second)</script>
+
+    <div style="color: black; text-align: center; margin-top: 50px;">
+  <h1>Die EU-Wahl beginnt in:</h1>
+  <ul>
+    <li style="display: inline-block; padding: 1em; text-transform: uppercase; color: black;"><span id="days" style="color:black; display: block; font-size: 4.5rem;"></span>Tagen</li>
+    <li style="display: inline-block; padding: 1em; text-transform: uppercase; color: black;"><span id="hours" style="color:black; display: block; font-size: 4.5rem;"></span>Stunden</li>
+    <li style="display: inline-block; padding: 1em; text-transform: uppercase; color: black;"><span id="minutes" style="color:black; display: block; font-size: 4.5rem;"></span>Minuten</li>
+    <li style="display: inline-block; padding: 1em; text-transform: uppercase; color: black;"><span id="seconds" style="color:black; display: block; font-size: 4.5rem;"></span>Sekunden</li>
+  </ul>
+</div>
+
+
+    <!-- ==========================================================================================================
 													 ADVANTAGES
 		 ========================================================================================================== -->
-	 <link rel="stylesheet" href="css/flipclock.css">
-
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-		<script src="js/flipclock.js"></script>
-    <div class="clock" style="margin:2em;"></div>
-	<div class="message"></div>
-
-	<script type="text/javascript">
-		var clock;
-		
-		$(document).ready(function() {
-			var clock;
-
-			clock = $('.clock').FlipClock({
-		        clockFace: 'DailyCounter',
-		        autoStart: false,
-		        callbacks: {
-		        	stop: function() {
-		        		$('.message').html('Die EU Wahl hat begonnen!')
-		        	}
-		        }
-		    });
-				    
-		    clock.setTime(220880);
-		    clock.setCountdown(true);
-		    clock.start();
-
-		});
-	</script>
-    
     <div class="fh5co-advantages-outer">
 		<div class="container">
 			<div class="row fh5co-advantages-grid-columns wow animated fadeIn" data-wow-delay="0.36s">
@@ -241,7 +214,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 
     </div>
@@ -303,7 +276,7 @@
   </div>
   <!--/.Slides-->
 
-    </div> 
+    </div>
     <!--Controls-->
   <div class="controls-top">
     <p style="text-align:center"><a class="btn btn-secondary" href="#multi-item-example1" data-slide="prev" style="border-radius:100px"><i class="fas fa-chevron-left"></i></a>
@@ -312,7 +285,7 @@
   <!--/.Controls--></div>
 <!--/.Carousel Wrapper-->
 
-    
+
 	<!-- ==========================================================================================================
 													  INFORMATIONEN
 		 ========================================================================================================== -->
@@ -333,17 +306,11 @@
 				<div class="col-sm-6 in-order-2 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
 					<h1>Wie funktioniert die Wahl?</h1>
 					<p>Mit der Europawahl werden alle fünf Jahre die österreichischen Mitglieder des Europäischen Parlaments gewählt. Es handelt sich um eine Direktwahl, bei der die Stimme für eine kandidierende Partei abgegeben wird. </p>
-                    <span class="circle circle-first"><i class="fas fa-check"></i></span>
-					<span class="circle circle-middle"><i class="far fa-star"></i></span>
-					<span class="circle circle-last"><i class="far fa-thumbs-up"></i></span>
 				</div>
 
 				<div class="col-sm-6 in-order-3 sm-6-content wow animated fadeInLeft" data-wow-delay="0.22s">
 					<h1>Informationen zur EU</h1>
 					<p>Die Europäische Union ist ein Verbund von derzeit 28 Mitgliedstaaten. Außerhalb von Europa umfasst die EU auch einige Überseegebiete.  Sie hat insgesamt mehr als eine halbe Milliarde Einwohner. Gemessen am Bruttoinlandsprodukt ist der EU-Binnenmarkt der größte gemeinsame Wirtschaftsraum der Erde.</p>
-					<span class="circle circle-first"><i class="fas fa-star"></i></span>
-					<span class="circle circle-middle"><i class="far fa-star"></i></span>
-					<span class="circle circle-last"><i class="far fa-thumbs-up"></i></span>
 				</div>
                 <div id="fh5co-info"></div>
 				<div class="col-sm-6 in-order-4 wow animated fadeInRight" data-wow-delay="0.22s">
@@ -360,14 +327,11 @@
 				<div class="col-sm-6 in-order-6 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
 					<h1>Wie kann ich eine Partei wählen?</h1>
 					<p>Die Mitglieder des Europäischen Parlaments werden für jeden Mitgliedstaat getrennt gewählt. Grundsätzlich können sich EU-Bürger auch in anderen Mitgliedsländern als ihrem Herkunftsland zur Wahl stellen sofern sie dort einen Wohnsitz haben. </p>
-					<span class="circle circle-first">95%</span>
-					<span class="circle circle-middle"><i class="fas fa-forward"></i></span>
-					<span class="circle circle-last"><i class="fab fa-github"></i></span>
 				</div>
 			</div> <!-- row -->
 		</div>
 	</div><p style="text-align:center"><a class="btn btn-outline-primary" href="subpages/artikelThemenUebersicht.html" style="margin-top:5%">Mehr Artikel ansehen</a></p>
-    
+
 <!-- ==========================================================================================================
 													  POLITIK
 		 ========================================================================================================== -->
@@ -418,7 +382,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 
     </div>
@@ -469,7 +433,7 @@
   </div>
   <!--/.Slides-->
 
-    </div> 
+    </div>
     <!--Controls-->
   <div class="controls-top">
     <p style="text-align:center"><a class="btn btn-secondary" href="#multi-item-example" data-slide="prev" style="border-radius:100px"><i class="fas fa-chevron-left"></i></a>
@@ -478,8 +442,8 @@
   <!--/.Controls--></div>
 <!--/.Carousel Wrapper-->
 
-    
-    
+
+
 	<div id="fh5co-zukunft" class="fh5co-reviews-outer" margin-top="20px">
 		<h1>Zukunft</h1>
 		<small>Was wird die EU in der Zukunft bringen?</small>
@@ -500,7 +464,7 @@
 			</div>
 		</div>
     </div><p style="text-align:center"><a class="btn btn-outline-primary" href="#" style="margin-top:10%">Mehr Zitate ansehen</a></p>
-    
+
     <div id="fh5co-gesetz" class="fh5co-reviews-outer" style="height:5%">
         <!--<img position="center" src="img/icon-5.png">-->
 		<h1>Gesetze</h1>
@@ -532,8 +496,8 @@
       </div>
   </div><p style="text-align:center"><a class="btn btn-outline-primary" href="#" style="margin-top:5%">Erfahre mehr über die Gesetze der EU</a></p>
     </div>
-    
-    
+
+
     <div id="fh5co-spiele" class="fh5co-reviews-outer" >
 		<h1>Spiele</h1>
 		<small>Spiele die coolsten Spiele auf dieser Webseite!</small>
@@ -574,7 +538,7 @@
 
 		</div>-->
     </div>
-	
+
 
     </div>
 	<!-- ==========================================================================================================
@@ -595,7 +559,7 @@
                             <li>Artikelverfasser: Viktoria Hammer, Amin Javed, Leo Winkler</li>
                             <li>Quiz-Creator: Leo Halbritter</li>
                             <li>Design-Spezialistin und Logo-Creator: Nicole Duchkowitsch</li>
-                        </ul>  
+                        </ul>
 					</div>
 				</div>
 			</div>
@@ -619,8 +583,8 @@
 						<ul>
 							<a href="#" onclick="$('#fh5co-hero-wrapper').goTo();return false;"><li>Home</li></a>
 							<a href="subpages/impressum.html"><li>Impressum</li></a>
-							<a href="#" onclick="$('#fh5co-hero-wrapper').goTo();return false;"><li>Kontaktformular</li></a>
-							<a href="#" onclick="$('#fh5co-hero-wrapper').goTo();return false;"><li>Über Uns</li></a>
+							<a href="subpages/kontaktformular.html"><li>Kontaktformular</li></a>
+							<a href="subpages/ueberuns.html"><li>Über Uns</li></a>
 						</ul>
 					</nav>
 				</div>
