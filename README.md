@@ -1,7 +1,7 @@
 # EUWebseite
 Diese Webseite dient dem informieren der Besucher über die Europäische Union und deren Gesetze/Parteien
 
-# Neuen Artikel erstellen:
+### Neuen Artikel erstellen:
 * Einen neuen Ordner erstellen unter subpages
 
 * Content.php und SideContent.php aus Arikel1(das ist das Template für den Content) in den neuen ordner Kopieren
@@ -12,7 +12,7 @@ Diese Webseite dient dem informieren der Besucher über die Europäische Union u
 
 * Der letzte Schritt ist nurnoch die Contentfiles deines Artikels zu bearbeiten dazu einfach Content.php in dem Artikel Ordner öffnen und den gewünschten Content einfügen egal ob Video Bilder Text etc.. In SideContent.php kann man auf andere Artikel verlinken.
 
-# Was ist noch zu tun?
+### Was ist noch zu tun?
 Die erste Gruppe hat sich damit beschäftigt, das Grundlegende der Webseite zu erstellen sowie auch erste Artikel hinzuzufügen. Tätigkeiten von kommenden Gruppen würden folgendes beinhalten:
 
 * Erstellen von weiteren Artikeln!
@@ -44,3 +44,13 @@ Die erste Gruppe hat sich damit beschäftigt, das Grundlegende der Webseite zu e
 * Admin Schnittstelle zum einfügen neuer Artikel einbauen
 
 * Das Erweitern der Readme.md wenn neue Teile hinzugefügt werden/überarbeitet werden.
+
+### Die Seite ist online abrufbar
+#### !!!Tipp, bevor ihr auf die Online-Seite zugreift!!!
+Wir haben extra ein Git-Repository erstellt, damit dort jeder seine Dateien pushen und die Änderungen von jemand anderen pullen kann. Warum nicht gleich im Webspace? Da man im Webspace keine Versionen zurückgehen kann. Kurz gesagt: Einer kann mit seiner Änderung die gesamte Webseite ruinieren. Deswegen verwendet bitte das Git-Repository, denn wenn einer was pfuscht, kann man es rückgängig machen. Wählt zum Beispiel einen aus der Gruppe aus, der die Webseite regelmäßig vom Git-Repository pullt und auf dem Webserver updatet.
+
+#### Login-Daten
+Die Seite ist unter [projekte.tgm.ac.at/EU-Wahlen](projekte.tgm.ac.at/EU-Wahlen) erreichbar.
+Um auf diese Seite zugreifen zu können gibt es diese Login-Daten:
+Benutzername: proj_euwahlen
+Passwort: yie7Phoh
