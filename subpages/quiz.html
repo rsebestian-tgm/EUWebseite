@@ -72,7 +72,6 @@
             frage.end();
             this.progress++;
           }
-          alert(this.counts);
         }
 
         /**
@@ -86,7 +85,6 @@
 
             ergebnis.undo(this.counts[this.counts.length-1]);
             this.counts.splice(this.counts.length-1, 1);
-            alert(this.counts + ", " + this.counts.length);
           }else{
             alert("Das ist die erste Frage!");
           }
@@ -177,7 +175,6 @@
           this.kategorien.set(kategorie, this.kategorien.get(kategorie)+punkte);
           this.added.push(punkte);
           this.catAdded.push(kategorie);
-          alert(this.added + ", " + this.catAdded);
         }
         this.undo = function(count){
           var i;
@@ -185,8 +182,6 @@
             this.kategorien.set(this.catAdded[this.catAdded.length-1], this.kategorien.get(this.catAdded[this.catAdded.length-1])-this.added[this.added.length-1]);
             this.added.splice(this.added.length-1, 1);
             this.catAdded.splice(this.catAdded.length-1, 1);
-
-            alert("Added: "+this.added + ", Cats: " + this.catAdded);
           }
         }
         this.getErgebnis = function(){
@@ -245,8 +240,7 @@
 </style>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand logo" href="../index.html"><img src="../img/logo.png" href="index.html" style="width:110px; padding-right: 10px"></a>
-      <a class="navbar-brand" href="../index.html" style="font-family: 'Viga', sans-serif;">EU-Informationsseite</a>
+      <a class="navbar-brand" href="../index.html" style="font-family: 'Viga', sans-serif;"><img src="../img/logo.png" style="width:110px; padding-right: 10px">EU-Informationsseite</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
