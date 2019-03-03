@@ -50,7 +50,7 @@ Die erste Gruppe hat sich damit beschäftigt, das Grundlegende der Webseite zu e
 Wir haben extra ein Git-Repository erstellt, damit dort jeder seine Dateien pushen und die Änderungen von jemand anderen pullen kann. Warum nicht gleich im Webspace? Da man im Webspace keine Versionen zurückgehen kann. Kurz gesagt: Einer kann mit seiner Änderung die gesamte Webseite ruinieren. Deswegen verwendet bitte das Git-Repository, denn wenn einer was pfuscht, kann man es rückgängig machen. Wählt zum Beispiel einen aus der Gruppe aus, der die Webseite regelmäßig vom Git-Repository pullt und auf dem Webserver updatet.
 
 #### Login-Daten
-Die Seite ist unter [projekte.tgm.ac.at/EU-Wahlen](projekte.tgm.ac.at/EU-Wahlen) erreichbar.
+Die Seite ist unter [projekte.tgm.ac.at/EU-Wahlen](https://projekte.tgm.ac.at/EU-Wahlen/) erreichbar.
 Um auf diese Seite zugreifen zu können gibt es diese Login-Daten:
 Benutzername: proj_euwahlen
 Passwort: yie7Phoh
