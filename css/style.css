@@ -86,6 +86,12 @@ input[type="radio"]{
   border-radius: 0 0 50% 50% / 4%;
 }
 
+#footer-quiz {
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+
 
 .main-navbar-nav .navbar-brand {
   font-size: 38px;

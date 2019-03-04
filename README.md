@@ -13,7 +13,7 @@ Bitte zuerst die __gesamte__ README.md lesen, bevor man beginnt etwas zu ändern
 
 * Der letzte Schritt ist nur noch die Contentfiles deines Artikels zu bearbeiten dazu einfach Content.php in dem Artikel Ordner öffnen und den gewünschten Content einfügen egal ob Video Bilder Text etc.. In SideContent.php kann man auf andere Artikel verlinken.
 
-  
+
 
 ## Was ist noch zu tun?
 Die erste Gruppe hat sich damit beschäftigt, das Grundlegende der Webseite zu erstellen sowie auch erste Artikel hinzuzufügen. Tätigkeiten von kommenden Gruppen würden folgendes beinhalten:
@@ -36,7 +36,7 @@ Die erste Gruppe hat sich damit beschäftigt, das Grundlegende der Webseite zu e
 
   * Bei Gesetze muss noch die Unterseite für den Button "Erfahre mehr über die Gesetze der EU" erstellt werden. Ebenfalls der Inhalt von den Artikeln "Artikel 11" und "Artikel 13"
 
-  * Das Quiz benötigt mehr fragen und als Nice-To-Have eine Ausdruckfunktion, um sich sein persönliches Ergebnis ausdrucken zu können (entweder als PDF oder wirklich an Drucker senden)
+  * Das Quiz benötigt mehr fragen und als Nice-To-Have eine Ausdruckfunktion, um sich sein persönliches Ergebnis ausdrucken zu können (entweder als PDF oder wirklich an Drucker senden). Die genauen Schritte um neue Fragen einzufügen sind im file quiz.html ausführlich dokumentiert. Dabei einfach ins script-tag im body schauen, dort gibt es schon eine richtige Frage und eine Beispiel-Frage. Falls dadurch nicht klar ist, was zu tun ist, kann man auch mal ins script im head schauen, dort sind die einzelnen Klassen dokumentiert. Sollte es dann immernoch Unklarheiten geben, bitte an [Leo Halbritter](lhalbritter@student.tgm.ac.at) wenden.
 
   * Schreibt eure Namen bei der "Über uns"-Seite hinzu
 
@@ -49,7 +49,7 @@ Die erste Gruppe hat sich damit beschäftigt, das Grundlegende der Webseite zu e
 
 * Das Erweitern der Readme.md wenn neue Teile hinzugefügt werden/überarbeitet werden.
 
-  
+
 
 ## Wie ist die Ordnerverteilung?
 

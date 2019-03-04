@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>EU-Wahl Quiz</title>
-    <!-- Alle Sachen die noch gemacht werden müssen sind mit TODO markiert,
-    also einfach STRG + F nach TODO :) -->
+    <!-- Alle Sachen die noch gemacht werden müssen sind mit TODO markiert.
+        Die Funktionalität des Quizzes wurde von Leo Halbritter geschrieben.-->
 
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,7 @@
       * Die Hauptklasse für das Quiz
       *
       * @param fragen ein Array mit Elementen vom Typ Frage
+      * @author Leo Halbritter
       */
       function Quiz(fragen, ergebnis){
         this.progress = 0;
@@ -103,11 +104,15 @@
       * Die Hauptklasse für die Fragen eines Quizzes
       *
       * @param titel Der Titel der Frage als String
+      * @param subtitel Eine Randnotiz zur Frage, muss unbedingt gesetzt sein.
+                        Falls keine Randnotiz vorhanden ist, bitte auf "" setzen.
       * @param antworten Ein Array von beliebig vielen Elementen vom Typ Antwort
       * @param id Die ID der Buttons
+      * @author Leo Halbritter
       */
-      function Frage(titel, antworten, id){
+      function Frage(titel, subtitel="", antworten, id){
         this.titel = titel;
+        this.subtitel = subtitel;
         this.antworten = antworten;
         this.id = id;
 
@@ -115,7 +120,7 @@
         * Funktion, welche die Frage, mit ihren Antworten anzeigt
         */
         this.setup = function(){
-          document.getElementById("quiz").innerHTML = "<form><h1>"+this.titel + "</h1><br>";
+          document.getElementById("quiz").innerHTML = "<form><h1>"+this.titel + "</h1><br><h6>"+this.subtitel+"</h6><br>";
           var i;
           for(i = 0; i < this.antworten.length; i++){
             document.getElementById("quiz").innerHTML += "<input type='radio' name='antworten' class='checkbox-quiz' checked='"+this.antworten[i].checked+"' id='"+this.antworten[i].id+"'>"+antworten[i].text+"<br><br>";
@@ -150,6 +155,7 @@
       * @param id Die ID der Antwortmöglichkeit
       * @param checked False, wenn das nicht die von Anfang an angekreuzte Antwort sein soll,
                        True, wenn schon. Bei einem Array für Frage, muss mindestens (& höchstens) eine Antwort ein checked=true haben.
+      * @author Leo Halbritter
       */
       function Antwort(text, kategorien, id, checked){
         this.text = text;
@@ -273,41 +279,62 @@
       * Ab hier könnt ihr eure Kategorie-Variablen erstellen.
       * Jede Antwort bekommt nur die Kategorien, wo mindestens 1 Punkt vergeben wird.
       * Ihr braucht für jede Antwort eine eigene Kategorie-Map.
+      *
+      * Ich empfehle euch von unten nach oben zu arbeiten, also:
+      * zuerst die Frage definieren, dann die Antworten setzen und
+      * sobald ihr eine Antwortmöglichkeit habt, die Kategorien für diese setzen.
       */
       var kats1 = new Map();
-      kats1.set("SPÖ", 1);
-      kats1.set("ÖVP", 2);
+      kats1.set("SPÖ", 4);
+      kats1.set("NEOS", 4);
+      kats1.set("GRÜNEN", 3);
 
       var kats2 = new Map();
-      kats2.set("NEOS", 2);
-      kats2.set("GRÜNEN", 2);
+      kats2.set("FPÖ", 3);
+      kats2.set("ÖVP", 3);
 
       var kats3 = new Map();
-      kats3.set("SPÖ", 2);
-      kats3.set("NEOS", 2);
-      kats3.set("GRÜNEN", 2);
+      kats3.set("FPÖ", 4);
+      kats3.set("ÖVP", 4);
 
       var kats4 = new Map();
-      kats4.set("FPÖ", 2);
-      kats4.set("ÖVP", 2);
+      kats4.set("SPÖ", 3);
+      kats4.set("NEOS", 3);
+      kats4.set("GRÜNEN", 2);
+
+      var kats5 = new Map();
+      kats5.set("SPÖ", 3);
+      kats5.set("GRÜNEN", 3);
+      kats5.set("NEOS", 3);
+
+      var kats6 = new Map();
+      kats6.set("ÖVP", 3);
+      kats6.set("FPÖ", 3);
+
 
       //Hier werden die Antwortmöglichkeiten erstellt
-      var answers1 = new Array(2);
-      answers1[0] = new Antwort("Ich finde Artikel 13 ist ein tolles Gesetz und sollte durchgesetzt werden!", kats1, "a1", true);
-      answers1[1] = new Antwort("Artikel 13 ist der größte Blödsinn! Auf keinen Fall durchsetzen!!", kats2, "a2", false);
+      var answers1 = new Array(4);
+      answers1[0] = new Antwort("Der Staat sollte das Geld lieber in andere (wichtigere) Themen investieren. (nein)", kats1, "a1", true);
+      answers1[1] = new Antwort("Ich weiß nicht ob ich den Quellen vertrauen kann. (eher ja)", kats2, "a2", false);
+      answers1[2] = new Antwort("Der Staat soll mal in sinnvolle Sachen investieren, unter anderem die E-Cards mit Fotos. (ja)", kats3, "a3", false);
+      answers1[3] = new Antwort("Ich weiß nicht ob ich den Quellen vertrauen kann, aber bezweifle generell, dass die E-Cards mit Fotos irgendeinen Mehrwert bringen. (eher nein)", kats4, "a4", false);
 
       var answers2 = new Array(2);
-      answers2[0] = new Antwort("Warum sollte man etwas gegen die Homoehe haben? Ja, natürlich sollte die überall gestattet sein!", kats3, "a1", true);
-      answers2[1] = new Antwort("Nein auf gar keinen Fall! Sowas ist doch nicht normal!", kats4, "a2", false);
+      answers2[0] = new Antwort("Warum sollte man etwas gegen die Homoehe haben? Ja, natürlich sollte die überall gestattet sein!", kats5, "a1", true);
+      answers2[1] = new Antwort("Nein auf gar keinen Fall! Sowas ist doch nicht normal!", kats6, "a2", false);
 
       //Hier werden die Fragen erstellt
+      titel1 = "Finden Sie es ist nötig E-Cards mit Fotos einzuführen?";
+      subtitel1 = "Beachten Sie dabei:<br>- Es sollen damit Missbrauche der E-Card verringert werden, von welchen es nur 27 gemeldete Fälle im Jahr 2014-2016 gab. <br>- Den Staat würde es 18 Millionen Euro kosten, diese Neuerung einzuführen. <br>- Laut Bundeskanzler Kurz sollen rund 200 Millionen Euro damit eingespart werden, allerdings sagen verschiedenste Quellen aus, dass damit nicht einmal 15.000 Euro eingespart werden sollen.<br>Quellen:<br>-<a href='https://kontrast.at/e-cards-fotos-neu/'>Kontrast</a><br>-<a href='https://www.tt.com/ticker/15345762/e-card-mit-foto-spoe-kritisiert-umsetzung-als-husch-pfusch'>tt.com</a>"
+
       var frage = new Array(2);
-      frage[0] = new Frage("Findest du Artikel 13 sollte durchgesetzt werden?", answers1, "f1");
-      frage[1] = new Frage("Findest du, dass Homoehe überall gestattet sein soll?", answers2, "f2");
+      frage[0] = new Frage(titel1, subtitel1, answers1, "f1");
+      frage[1] = new Frage("Findest du, dass Homoehe überall gestattet sein soll?", "", answers2, "f2");
 
       //Hier wird das Quiz gestartet
       var quiz = new Quiz(frage, new Ergebnis(kats));
       quiz.start();
     </script>
+
   </body>
 </html>
