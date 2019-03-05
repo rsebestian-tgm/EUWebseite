@@ -30,7 +30,7 @@ Die erste Gruppe hat sich damit beschäftigt, das Grundlegende der Webseite zu e
 
   * Beim Button "Mehr Artikel ansehen" gibt es zwar die Themenübersicht, aber nur der erste Link "Allgemeine Informationen" funktioniert. Es muss nämlich noch die Unterseite (klicke bitte auf (Allgemeine Informationen um auf die Seite "Artikelübersicht" zu kommen)) programmiert werden. Es sollen dort immer die neuesten Artikel zu dem passenden Thema erscheinen. Erst wenn diese Funktionalität funktioniert, kann man es zu den anderen Themenbereichen ebenfalls eine Unterseite hinzufügen.
 
-  * Im "Politik" - Bereich müssen noch passende Artikel zu den einzelnen Parteien geben. Das ist aber keine gewöhnliche Artikel-Seite (bitte parteiTemplate.html benutzen (hat ein anderes Layout, als die herkömmliche Artikel-Seite)).
+  * Im "Politik" - Bereich müssen noch passende Artikel zu den einzelnen Parteien geben. Das ist aber keine gewöhnliche Artikel-Seite (bitte parteiTemplate.html benutzen (hat ein anderes Layout, als die herkömmliche Artikel-Seite)). Die Verlinkung auf die parteiTemplate.html Seite ist bei SPÖ. Wenn es schon realistische Artikeln gibt, bitte diese Verlinkung bei den anderen Parteien weiterführen.
 
   * Bei Zukunft muss noch die Unterseite für den Button "Mehr Zitate ansehen" erstellt werden.
 
