@@ -4,14 +4,46 @@ Bitte zuerst die __gesamte__ README.md lesen, bevor man beginnt etwas zu ändern
 
 ## Neuen Artikel erstellen:
 * Einen neuen Ordner erstellen unter subpages
-
 * Content.php und SideContent.php aus Arikel1(das ist das Template für den Content) in den neuen ordner Kopieren
-
 * Im Subpages Ordner artikelTemplate.php kopieren und umbenennen(am besten gleich in den Artikelnamen :P)
-
 * In dem neuen Artikel.php bei den php tags auf die Contentfiles verweisen dazu muss wenn alle schritte exakt befolgt wurden nur den ordner namen ändern. Standartmässig steht dor include'contenfiles/Artikel1/Content' und include'contenfiles/Artikel1/Content' einfach /Artikel1/ ändern auf /NAME DEINES ARTIKEL ORDNERS/ dann kann der content und sidecontent geladen werden.
-
 * Der letzte Schritt ist nur noch die Contentfiles deines Artikels zu bearbeiten dazu einfach Content.php in dem Artikel Ordner öffnen und den gewünschten Content einfügen egal ob Video Bilder Text etc.. In SideContent.php kann man auf andere Artikel verlinken.
+
+### Artikel sichtbar machen :)
+
+* Zuerst muss man sich bewusst sein, in welchem Themenbereich der von Ihnen erstellte Artikel reinpasst. Es gibt die Themenbereiche:
+
+  * Allgemeine Informationen (allgemeineInformationen.html)
+  * Die Wahl (dieWahl.html)
+  * Die Parteien (dieParteien.html)
+  * Meinungen der Bürgerinnen und Bürger (meinungenDerBuerger.html)
+  * Geschichte (geschichte.html)
+  * Zukunft (zukunft.html)
+
+* Wenn man sich einen passenden Themenbereich zu seinen Artikel ausgesucht hat, geht man in die beigeführte HTML-Datei und sucht (mithilfe von Strg+F) die div "Page-Content". Duplizieren Sie diesen Code:
+
+  ```html
+  <div class="row">
+          <div class="col-md-2">
+            <a href="artikelTemplate.php">
+              <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/300x200" alt="">
+            </a>
+          </div>
+          <div class="col-md-7">
+            <h3><a href="artikelTemplate.php">Project One</a></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+          </div>
+  </div>
+  <hr>
+  ```
+
+  und ändern den Link bei `<a href="artikelTemplate.php">` zu den Link zu Ihren zuvor erstellten PHP-File.
+  **Bitte beachten Sie, dass die neuesten Artikeln ganz oben erscheinen sollen. Also duplizieren Sie Ihren Code immer unter:**
+
+  ```html
+  <!-- Project One -->
+        [Der kopierte Code mit dem geänderten Link]
+  ```
 
 
 
