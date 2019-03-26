@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
+
+    <!-- JQUERY - has to be in the <head> because it is required in the body and has to be loaded first -->
+    <script src="js/jquery.min.js"></script>
 </head>
 <body>
 
@@ -89,32 +92,50 @@
 	<!-- ==========================================================================================================
 													 TIME-COUNTDOWN
 		 ========================================================================================================== -->
-	 <script>const second = 1000,
-      minute = second * 60,
-      hour = minute * 60,
-      day = hour * 24;
+    <script>
+        $(document).ready(function() {
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
 
-let countDown = new Date('May 23, 2019 00:00:00').getTime(),
-    x = setInterval(function() {
+            let countDown = new Date('March 26, 2019 16:00:00').getTime();
 
-      let now = new Date().getTime(),
-          distance = countDown - now;
+            //Retrieve the jQuery objects for easy access to the HTML elements
+            let daysSpan = $("#days");
+            let hoursSpan = $("#hours");
+            let minutesSpan = $("#minutes");
+            let secondsSpan = $("#seconds");
 
-      document.getElementById('days').innerText = Math.floor(distance / (day)),
-        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
-        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+            let x = setInterval(function() {
+                let now = new Date().getTime();
+                let distance = countDown - now;
 
-      //do something later when date is reached
-      if (distance < 0) {
-        clearInterval(x);
-        'DIE EU WAHL HAT BEGONNEN!';
-      }
+                //Calculate remaining days and set the text of the corresponding HTML span elements
+                daysSpan.text(Math.floor(distance / day));
+                hoursSpan.text(Math.floor((distance % day) / hour));
+                minutesSpan.text(Math.floor((distance % hour) / minute));
+                secondsSpan.text(Math.floor((distance % minute) / second));
 
-    }, second)</script>
+                //do something later when date is reached
+                if (distance < 0) {
+                    clearInterval(x); //Stop calling the function
+
+                    //Set timer to 0 seconds left
+                    daysSpan.text(0);
+                    hoursSpan.text(0);
+                    minutesSpan.text(0);
+                    secondsSpan.text(0);
+
+                    //Display "Die EU-Wahl hat begonnen!" instead of "Die EU-Wahl beginnt in"
+                    $("#timer-header").text("Die EU-Wahl hat begonnen!");
+                }
+            }, second);
+        });
+    </script>
 
     <div style="color: black; text-align: center; margin-top: 50px;">
-  <h1>Die EU-Wahl beginnt in:</h1>
+  <h1 id="timer-header">Die EU-Wahl beginnt in:</h1>
   <ul>
     <li style="display: inline-block; padding: 1em; text-transform: uppercase; color: black;"><span id="days" style="color:black; display: block; font-size: 4.5rem;"></span>Tagen</li>
     <li style="display: inline-block; padding: 1em; text-transform: uppercase; color: black;"><span id="hours" style="color:black; display: block; font-size: 4.5rem;"></span>Stunden</li>
@@ -583,7 +604,6 @@ let countDown = new Date('May 23, 2019 00:00:00').getTime(),
 
 
 
-	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/wow.min.js"></script>
