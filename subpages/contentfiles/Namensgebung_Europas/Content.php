@@ -16,8 +16,10 @@
         <hr>
 
         <!-- Preview Image -->
-        <video class="responsiv" controls preload="auto">
-    	<source src="contentfiles/Namensgebung_Europas/EuropaUndZeus.mp4" type="video/mp4">
+        <video style="width:100%;" controls preload="auto">
+    	    <source src="contentfiles/Namensgebung_Europas/EuropaUndZeus.mp4" type="video/mp4">
+        </video>
+
         <hr>
 
         <!-- Post Content -->

@@ -16,7 +16,7 @@
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="contentfiles/Grobe Geschichte der EU/eu-geschichte-preview.jpg" alt="">
+        <img class="img-fluid rounded" src="contentfiles/GrobeGeschichte/eu-geschichte-preview.jpg" alt="">
 
         <hr>
 
@@ -25,8 +25,8 @@
 
         <p>
 		<video width="100%" height="auto" controls>
-		  <source src="contentfiles/Grobe Geschichte der EU/eu-geschichte.mp4" type="video/mp4">
-			Your browser does not the video.
+		  <source src="contentfiles/GrobeGeschichte/eu-geschichte.mp4" type="video/mp4">
+			Your browser does not support the video.
 		</video>
 		
 		</p>
