@@ -17,7 +17,7 @@
 
         <!-- Preview Image -->
         <video class="responsiv" controls preload="auto">
-    	<source src="EuropaUndZeus.mp4" type="video/mp4">
+    	<source src="contentfiles/Namensgebung_Europas/EuropaUndZeus.mp4" type="video/mp4">
         <hr>
 
         <!-- Post Content -->

@@ -58,7 +58,7 @@
       <!-- Post Content Column -->
         <div id = "content" class="col-lg-8">
             <?php
-                include 'contentfiles/Grobe Geschichte der EU/Content.php';
+                include 'contentfiles/GrobeGeschichte/Content.php';
             ?>
       </div>
 
@@ -68,7 +68,7 @@
         <!-- Search Widget -->
         <div id="sidecontent" class="card my-4">
             <?php
-                include 'contentfiles/Grobe Geschichte der EU/SideContent.php';
+                include 'contentfiles/GrobeGeschichte/SideContent.php';
             ?>
       </div>
     </div>

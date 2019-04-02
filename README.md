@@ -3,11 +3,42 @@ Diese Webseite dient dem informieren der Besucher über die Europäische Union u
 Bitte zuerst die __gesamte__ README.md lesen, bevor man beginnt etwas zu ändern.
 
 ## Neuen Artikel erstellen:
-* Einen neuen Ordner erstellen unter subpages
-* Content.php und SideContent.php aus Arikel1(das ist das Template für den Content) in den neuen ordner Kopieren
-* Im Subpages Ordner artikelTemplate.php kopieren und umbenennen(am besten gleich in den Artikelnamen :P)
-* In dem neuen Artikel.php bei den php tags auf die Contentfiles verweisen dazu muss wenn alle schritte exakt befolgt wurden nur den ordner namen ändern. Standartmässig steht dor include'contenfiles/Artikel1/Content' und include'contenfiles/Artikel1/Content' einfach /Artikel1/ ändern auf /NAME DEINES ARTIKEL ORDNERS/ dann kann der content und sidecontent geladen werden.
-* Der letzte Schritt ist nur noch die Contentfiles deines Artikels zu bearbeiten dazu einfach Content.php in dem Artikel Ordner öffnen und den gewünschten Content einfügen egal ob Video Bilder Text etc.. In SideContent.php kann man auf andere Artikel verlinken.
+
+Zu jedem Artikel gehört ein Ordner und eine Hauptseite.
+
+### Artikel-Ordner
+
+Der Ordner liegt in `subpages/contentfiles` (zum Beispiel `subpages/contentfiles/MeinArtikel`). Er enthält zwei Dateien: `Content.php` und `SideContent.php`.
+
+- Kopiere den Ordner `subpages/contentfiles/Artikel1` und benenne ihn in den Namen deines Artikels um. **Achtung**: Der Dateiname sollte keine Umlaute, Sonderzeichen oder Leerzeichen enthalten!
+
+### Artikel-Hauptseite
+
+Die Artikel-Hauptseite ist die PHP-Datei, die letztendlich aufgerufen wird. Sie liegt im Unterordner `subpages` 
+
+- Kopiere die Datei `subpages/artikelTemplate.php` und benenne sie in den Namen deines Artikels um. **Achtung**: Der Dateiname sollte keine Umlaute, Sonderzeichen oder Leerzeichen enthalten!
+
+Die PHP-Datei hat zwei `include`-Anweisungen, um die Dateien `Content.php` und `SideContent.php` einzubinden.
+
+- Ändere den Pfad um auf deinen Artikel-Ordner.
+
+### Content.php
+
+Die Datei `Content.php` im Artikel-Ordner enthält den eigentlichen Inhalt des Artikels.
+
+- Trage Titel, Autor, Datum und den Text des Artikels ein.
+
+- **Achtung**: Wenn du Bilder oder Videos in den Artikel einbauen willst (zum Beispiel ein Titelbild), musst du den gesamten Pfad ab `contentfiles` angeben, auch, wenn die Bilder und Videos im selben Ordner wie `Content.php` liegen. Der Pfad muss aus der Sicht der Artikel-Hauptseite angegeben werden!
+
+  Um ein Titelbild einzufügen, ist der Pfad zum Beispiel: `contentfiles/MeinArtikel/Titelbild.jpg`
+
+### SideContent.php
+
+Die Datei `SideContent.php` im Artikel-Ordner enthält Links zu anderen Artikeln. Wenn du von deinem Artikel aus auf andere Artikel verlinken willst, kannst du das hier machen.
+
+- Füge Links zu anderen Artikeln hinzu
+- **Achtung**: Auch hier muss der Pfad aus Sicht der Artikel-Hauptseite angegeben werden! Verlinkt werden soll die Hauptseite des anderen Artikels (Zum Beispiel: `Namensgebung_Europas.php`).
+- Wenn du keine Links hinzufügen möchtest, lösche die Links wieder.
 
 ### Artikel sichtbar machen :)
 
