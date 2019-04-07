@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>EU-Tinder</title>
+</head>
+<body onload="printstmt()">
+    <h1 class="titles text-center">EU-Tinder</h1>
+
+    <div class="container container_color text-white mx-auto" id="main">
+        <h2 class="text-center">
+            Würde dieses Statement ihren Vorstellungen ensprechen?
+        </h2>
+        <p class="text-center question" id="stmts">
+        </p>
+        <button type="button" class="btn btn-primary btn-lg yn-button" onclick="counterplus('yes')" >Ja</button>
+        <button type="button" class="btn btn-primary btn-lg yn-button" onclick="counterplus('no')" >Nein</button>
+    </div>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/wahl.js"></script>
+</body>
+</html>
