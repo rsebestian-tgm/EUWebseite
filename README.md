@@ -104,11 +104,7 @@ Die erste Gruppe hat sich damit beschäftigt, das Grundlegende der Webseite zu e
   * Schreibt eure Namen bei der "Über uns"-Seite hinzu
 
   * Unter dem Propaganda-Bild (ganz oben auf der Homepage, wird neben dem Titel "The U in EU" eingeblendet), soll ein Copyright Symbol mit dem Namen des Erstellers eingeblendet sein (zB &copy Alexander Cech)
-  * Ebenfalls soll eine Diashow (bei Bootstrap heißt es [Carousel](https://getbootstrap.com/docs/4.0/components/carousel/#with-indicators)) bei den Propaganda-Bilder sein, damit man mehr Propaganda-Bilder anzeigen kann
-
-  * Der Timer auf der Homepage endet noch nicht richtig. Wenn er sein End-Datum erreicht hat, wird -1, -1, -1, -1 angezeigt. Bitte beheben! (um es zu testen, setzt einfach ein das heutige Datum und eine Uhrzeit die ca. 10 sek von der jetzigen entfernt ist)
-
-* Admin Schnittstelle zum einfügen neuer Artikel einbauen
+  * Admin Schnittstelle zum einfügen neuer Artikel einbauen
 
 * Das Erweitern der Readme.md wenn neue Teile hinzugefügt werden/überarbeitet werden.
 
