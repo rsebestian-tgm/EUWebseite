@@ -13,7 +13,7 @@
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="contentfiles/WieFunktioniertDieWahl/Grafik.png" alt="">
+        <img class="img-fluid rounded" src="contentfiles/WieFunktioniertDieWahl/Grafik.png" alt="Titelbild \"Wie funktioniert die Wahl\"">
 
         <hr>
 
